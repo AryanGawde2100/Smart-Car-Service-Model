@@ -2,20 +2,16 @@ services:
   - type: web
     name: autocare-ai
     runtime: python
-    plan: starter
+    plan: free
     buildCommand: pip install -r requirement.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: DATABASE_URL
-        value: sqlite:////opt/render/project/src/data/car_service.db
+        value: sqlite:///./car_service.db
       - key: SECRET_KEY
         generateValue: true
       - key: ALGORITHM
         value: HS256
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
         value: "60"
-    disk:
-      name: autocare-data
-      mountPath: /opt/render/project/src/data
-      sizeGB: 1
