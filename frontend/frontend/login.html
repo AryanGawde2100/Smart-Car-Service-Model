@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoCare AI — Smart Car Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+  <div class="auth-glow" aria-hidden="true"></div>
+
+  <div class="auth-shell">
+    <div class="auth-brand">
+      <div class="brand-logo pulsate">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+          <circle cx="7" cy="17" r="2" />
+          <path d="M9 17h6" />
+          <circle cx="17" cy="17" r="2" />
+        </svg>
+      </div>
+      <h1 class="brand-title">AutoCare <span>AI</span></h1>
+      <p class="brand-tagline">Predictive car maintenance, reimagined</p>
+    </div>
+
+    <div class="auth-box slide-up">
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab active" id="tabLogin">Sign in</button>
+        <button type="button" class="auth-tab" id="tabRegister">Create account</button>
+      </div>
+
+      <!-- LOGIN FORM -->
+      <form id="loginForm" class="auth-form">
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" autocomplete="username" placeholder="Enter your username" required />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <span class="btn-label">Sign in</span>
+          <span class="spinner hidden"></span>
+        </button>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="registerForm" class="auth-form hidden">
+        <div class="field">
+          <label for="registerUsername">Username</label>
+          <input id="registerUsername" name="username" type="text" minlength="3" maxlength="50" autocomplete="username" placeholder="Choose a username" required />
+        </div>
+        <div class="field">
+          <label for="registerPassword">Password</label>
+          <div class="password-wrap">
+            <input id="registerPassword" name="password" type="password" minlength="6" maxlength="72" autocomplete="new-password" placeholder="Create a password" required />
+            <button type="button" class="eye-btn" data-target="registerPassword" aria-label="Toggle password" tabindex="-1">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <div class="strength-meter hidden"><div class="strength-bar"><span id="strengthFill"></span></div><small id="strengthLabel"></small></div>
+        </div>
+        <div class="field">
+          <label for="registerConfirm">Confirm password</label>
+          <div class="password-wrap">
+            <input id="registerConfirm" name="confirm" type="password" autocomplete="new-password" placeholder="Repeat your password" required />
+            <button type="button" class="eye-btn" data-target="registerConfirm" aria-label="Toggle password" tabindex="-1">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          <span class="btn-label">Create account</span>
+          <span class="spinner hidden"></span>
+        </button>
+      </form>
+
+      <div id="authStatus" class="status" aria-live="polite"></div>
+    </div>
+
+    <p class="auth-footer">AI-powered · FastAPI · SQLite</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
